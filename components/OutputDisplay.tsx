@@ -6,9 +6,10 @@ interface OutputDisplayProps {
   output: string;
   isLoading: boolean;
   isCode: boolean;
+  placeholder: string;
 }
 
-export const OutputDisplay: React.FC<OutputDisplayProps> = ({ output, isLoading, isCode }) => {
+export const OutputDisplay: React.FC<OutputDisplayProps> = ({ output, isLoading, isCode, placeholder }) => {
   const [copied, setCopied] = useState(false);
 
   const cleanedOutput = output.replace(/```(vba|vb|VBA|VB)?\s*/, '').replace(/```$/, '');
@@ -34,7 +35,7 @@ export const OutputDisplay: React.FC<OutputDisplayProps> = ({ output, isLoading,
   
   const Placeholder = () => (
     <div className="flex items-center justify-center h-full text-brand-text-secondary">
-      AI 的回應將會顯示在這裡...
+      {placeholder}
     </div>
   );
 
