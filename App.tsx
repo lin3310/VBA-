@@ -1,4 +1,3 @@
-
 import React, { useState, useCallback } from 'react';
 import { AppMode } from './types';
 import { explainVbaCode, generateVbaCode } from './services/geminiService';
@@ -7,6 +6,7 @@ import { CodeInput } from './components/CodeInput';
 import { OutputDisplay } from './components/OutputDisplay';
 import { ActionButton } from './components/ActionButton';
 import { GithubIcon, SparklesIcon } from './components/Icons';
+import { ThemeSwitcher } from './components/ThemeSwitcher';
 
 const App: React.FC = () => {
   const [mode, setMode] = useState<AppMode>(AppMode.EXPLAIN);
@@ -60,9 +60,12 @@ const App: React.FC = () => {
           <SparklesIcon className="w-8 h-8 text-brand-primary" />
           <h1 className="text-2xl font-bold text-white tracking-wide">VBA 語言解讀與製造</h1>
         </div>
-        <a href="https://github.com/google/labs-prototypes" target="_blank" rel="noopener noreferrer" className="text-brand-text-secondary hover:text-white transition-colors">
-          <GithubIcon className="w-7 h-7" />
-        </a>
+        <div className="flex items-center gap-4">
+          <ThemeSwitcher />
+          <a href="https://github.com/google/labs-prototypes" target="_blank" rel="noopener noreferrer" className="text-brand-text-secondary hover:text-white transition-colors">
+            <GithubIcon className="w-7 h-7" />
+          </a>
+        </div>
       </header>
 
       <main className="flex-grow container mx-auto p-4 md:p-6 lg:p-8 flex flex-col">
