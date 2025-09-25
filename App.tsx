@@ -40,6 +40,7 @@ const App: React.FC = () => {
         result = await generateVbaCode(input);
       }
       setOutput(result);
+    // FIX: Added curly braces for the catch block to fix syntax error.
     } catch (err) {
       setError(err instanceof Error ? err.message : '發生未知錯誤。');
     } finally {
@@ -58,11 +59,11 @@ const App: React.FC = () => {
       <header className="w-full bg-brand-bg-light border-b border-brand-border p-4 flex justify-between items-center shadow-lg">
         <div className="flex items-center gap-3">
           <SparklesIcon className="w-8 h-8 text-brand-primary" />
-          <h1 className="text-2xl font-bold text-white tracking-wide">VBA 語言解讀與製造</h1>
+          <h1 className="text-2xl font-bold text-brand-text tracking-wide">VBA 語言解讀與製造</h1>
         </div>
         <div className="flex items-center gap-4">
           <ThemeSwitcher />
-          <a href="https://github.com/google/labs-prototypes" target="_blank" rel="noopener noreferrer" className="text-brand-text-secondary hover:text-white transition-colors">
+          <a href="https://github.com/google/labs-prototypes" target="_blank" rel="noopener noreferrer" className="text-brand-text-secondary hover:text-brand-text transition-colors">
             <GithubIcon className="w-7 h-7" />
           </a>
         </div>
