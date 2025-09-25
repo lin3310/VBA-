@@ -10,7 +10,10 @@ interface ActionButtonProps {
 }
 
 export const ActionButton: React.FC<ActionButtonProps> = ({ onClick, isLoading, mode }) => {
-  const buttonText = mode === AppMode.EXPLAIN ? '解讀程式碼' : '製造程式碼';
+  const buttonText = 
+    mode === AppMode.EXPLAIN ? '解讀程式碼' :
+    mode === AppMode.GENERATE ? '製造程式碼' :
+    '傳送訊息';
 
   return (
     <button

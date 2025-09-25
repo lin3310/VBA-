@@ -1,5 +1,6 @@
 
-import { GoogleGenAI } from "@google/genai";
+
+import { GoogleGenAI, Chat } from "@google/genai";
 
 if (!process.env.API_KEY) {
     throw new Error("API_KEY environment variable not set");
@@ -58,4 +59,23 @@ export const generateVbaCode = async (description: string): Promise<string> => {
         console.error("Error generating VBA code:", error);
         throw new Error("無法生成程式碼。請稍後再試。");
     }
+};
+
+export const startDebugChat = (): Chat => {
+    const model = 'gemini-2.5-flash';
+    const systemInstruction = `You are an expert VBA debugger named "VBA Debug Bot". 
+Your goal is to help users find, understand, and fix errors in their VBA code. 
+Engage in a step-by-step conversation. 
+Ask clarifying questions to understand the user's problem and the code's intended behavior.
+When you provide code, explain the changes you made and why.
+Keep your responses concise and easy to understand.
+Start the conversation by introducing yourself and asking the user to paste their code or describe the problem.`;
+
+    const chat = ai.chats.create({
+        model,
+        config: {
+            systemInstruction,
+        }
+    });
+    return chat;
 };
