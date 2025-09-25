@@ -1,0 +1,5 @@
+{
+  "name": "VBA Code Explainer and Generator",
+  "description": "An application that uses AI to explain existing VBA code or generate new VBA code from natural language descriptions.",
+  "requestFramePermissions": []
+}
